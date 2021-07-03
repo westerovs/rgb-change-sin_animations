@@ -26,6 +26,7 @@ https://via.placeholder.com/150x100
     font-family: Geometria, Arial, Helvetica, sans-serif;
     background-image: linear-gradient(black, red, black);
     color: #ccc;
+    overflow: hidden;
 }
 
 .wrapper {
@@ -97,6 +98,9 @@ https://via.placeholder.com/150x100
 }
 
 .row {
+    position: relative;
+    top: 100px;
+    left: 50px;
     display: flex;
 }
 

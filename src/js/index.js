@@ -33,7 +33,7 @@ const result = {
 }
 
 // играя с этим числом, можно получить интересные эффекты(2, 5, 6 и тд)
-const typeAnimation = 6
+const typeAnimation = 5
 
 let currentAnimationTime = 0;
 let animationSquare = null
@@ -44,7 +44,7 @@ setTimeout(() => {
     const squares = document.querySelectorAll('.rect')
     
     function initConvertColors() {
-        currentAnimationTime += 0.007;
+        currentAnimationTime += 0.05;
         
         squares.forEach((item, i) => {
             result.r = startColor[0] + Math.trunc(Math.sin(currentAnimationTime - (i * typeAnimation)) * amplitude.r)
