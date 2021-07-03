@@ -6,4 +6,4 @@ START:
 * В идеале, обернуть это в класс и добавить альфаканал ещё
 <br>
 <img src="cover.jpg">
-https://westerovs.github.io/change-color-sin_animations/
+https://westerovs.github.io/rgb-change-sin_animations/
