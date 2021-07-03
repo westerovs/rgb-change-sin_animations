@@ -33,7 +33,7 @@ const result = {
 }
 
 // играя с этим числом, можно получить интересные эффекты(2, 5, 6 и тд)
-const typeAnimation = 5
+const typeAnimation = 6
 
 let currentAnimationTime = 0;
 let animationSquare = null
