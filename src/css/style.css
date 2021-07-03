@@ -99,7 +99,6 @@ https://via.placeholder.com/150x100
     display: flex;
 }
 
-/* раскомментировать - для изысканных извращений */
 .rect-row,
 .rect {
     will-change: background-color;
