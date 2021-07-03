@@ -54,24 +54,12 @@ img {
 }
 
 .wrapper {
+    outline: 2px dashed red;
+
     position: relative;
     margin: 50px auto;
-    min-width: 400px;
-    min-height: 400px;
-}
-
-
-.svg {
-    margin: 5px;
-    outline: 1px solid gray;
-    outline-offset: 3px;
-
-    animation-name: scale;
-    animation-fill-mode: forwards;
-    animation-duration: var(--main-duration);
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    transform-origin: center;
+    width: 400px;
+    height: 400px;
 }
 
 .circle {
