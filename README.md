@@ -8,5 +8,5 @@
 🚀 RUN: https://westerovs.github.io/rgb-change-sin_animations/
 <br>
 <br>
-<img src="cover.jpg">
+<img src="cover_.jpg">
 
