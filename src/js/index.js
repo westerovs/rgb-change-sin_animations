@@ -1,6 +1,6 @@
 /*
 * Принимает два любых rgb на вход.
-*  Получает разницу между цветами и плавно меняет цвет от первого RGB до второго
+* Получает разницу между цветами и плавно меняет цвет от первого RGB до второго
 * В идеале, обернуть это в класс и добавить альфаканал ещё
 */
 const boxSide = document.querySelectorAll('.slider__side')
@@ -39,7 +39,7 @@ let currentAnimationTime = 0;
 let animationSquare = null
 let alpha = false
 
-// временный костыль. Добавлю async
+// временный костыль. Добавлю async позже !!!
 setTimeout(() => {
     const squares = document.querySelectorAll('.rect')
     
