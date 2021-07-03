@@ -3,7 +3,7 @@
 *  Получает разницу между цветами и плавно меняет цвет от первого RGB до второго
 * В идеале, обернуть это в класс и добавить альфаканал ещё
 */
-let squares = document.querySelectorAll('.rect')
+const boxSide = document.querySelectorAll('.slider__side')
 
 const getDifColor = (firstRgb , secondRgb) => {
     if (firstRgb.length === 3 && secondRgb.length === 3) {
@@ -18,7 +18,7 @@ const getDifColor = (firstRgb , secondRgb) => {
     console.log('некорректный ввод')
 }
 
-const rgbDif = getDifColor([0, 255, 169], [255, 5, 38])
+const rgbDif = getDifColor([1, 3, 5], [250, 35, 38])
 
 const startColor = rgbDif.startColor
 const amplitude = {
@@ -32,34 +32,51 @@ const result = {
     b: 0,
 }
 
-// играя с этим числом, можно получить интересные эффекты
-const typeAnimation = 5
+// играя с этим числом, можно получить интересные эффекты(2, 5, 6 и тд)
+const typeAnimation = 6
 
 let currentAnimationTime = 0;
 let animationSquare = null
+let alpha = false
 
-function initConvertColors() {
-    currentAnimationTime += 0.005;
+// временный костыль. Добавлю async
+setTimeout(() => {
+    const squares = document.querySelectorAll('.rect')
     
-    squares.forEach((item, index) => {
-        result.r = startColor[0] + Math.trunc(Math.sin(currentAnimationTime - index / typeAnimation) * amplitude.r)
-        result.g = startColor[1] - Math.trunc(Math.sin(currentAnimationTime - index / typeAnimation) * amplitude.g)
-        result.b = startColor[2] - Math.trunc(Math.sin(currentAnimationTime - index / typeAnimation) * amplitude.b)
+    function initConvertColors() {
+        currentAnimationTime += 0.007;
+        
+        squares.forEach((item, i) => {
+            result.r = startColor[0] + Math.trunc(Math.sin(currentAnimationTime - (i * typeAnimation)) * amplitude.r)
+            result.g = startColor[1] - Math.trunc(Math.sin(currentAnimationTime - (i * typeAnimation)) * amplitude.g)
+            result.b = startColor[2] - Math.trunc(Math.sin(currentAnimationTime - (i * typeAnimation)) * amplitude.b)
+            
+            item.style.backgroundColor = `rgb(
+                ${ (result.r <= startColor[0]) ? startColor[0] : result.r },
+                ${ (result.g >= startColor[1]) ? startColor[1] : result.g },
+                ${ (result.b >= startColor[2]) ? startColor[2] : result.b },
+                ${ alpha ? +Math.abs(Math.sin(+i)).toFixed(1) : 1 }
+            )`
+        })
+        
+        animationSquare = requestAnimationFrame(initConvertColors);
+    }
     
-        item.style.backgroundColor = `rgb(
-            ${ (result.r <= startColor[0]) ? startColor[0] : result.r },
-            ${ (result.g >= startColor[1]) ? startColor[1] : result.g },
-            ${ (result.b >= startColor[2]) ? startColor[2] : result.b }
-        )`
-    })
-    
-    animationSquare = requestAnimationFrame(initConvertColors);
+    initConvertColors();
+}, 1000)
+
+
+// ----------- render
+const render = (container, template, place = 'beforeend') => {
+    if (container instanceof Element) {
+        container.insertAdjacentHTML(place, template)
+    }
 }
 
-const destroyConvertColors = () => {
-    currentAnimationTime = 0
-    cancelAnimationFrame(animationSquare)
+for (const side of boxSide) {
+    for (let i = 1; i < 50; i++) {
+        render(side, '<div class="rect"></div>')
+    }
 }
 
-initConvertColors();
 

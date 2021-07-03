@@ -32,18 +32,82 @@ https://via.placeholder.com/150x100
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(35deg);
-    display: grid;
-    grid-template-columns: repeat(5, min-content);
-    grid-template-rows: repeat(auto-fill, min-content);
-    gap: 10px;
-    align-content: flex-start;
-    margin: 50px auto;
-    width: min-content;
-    height: min-content;
+
+    width: 400px;
+    height: 400px;
+    perspective: 1500px;
 }
 
+.slider {
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+    transform: rotateY(-20deg) rotateX(-30deg);
+
+    animation-name: rotateBox;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    will-change: transform;
+}
+
+@keyframes rotateBox {
+    0% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    0% {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+.slider__side {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: inherit;
+    height: inherit;
+    backface-visibility: hidden;
+    outline: 1px solid black;
+}
+
+.slider__side--top {
+    transform: translateY(-200px) rotateX(90deg);
+}
+
+.slider__side--bottom {
+    transform: translateY(200px) rotateX(-90deg);
+}
+
+.slider__side--front {
+    transform: translateZ(200px);
+}
+
+.slider__side--back {
+    transform: rotateY(180deg) translateZ(200px);
+}
+
+.slider__side--right {
+    transform: rotateY(90deg) translateZ(200px);
+}
+
+.slider__side--left {
+    transform: rotateY(-90deg) translateZ(200px);
+}
+
+.row {
+    display: flex;
+}
+
+/* раскомментировать - для изысканных извращений */
+.rect-row,
 .rect {
-    outline: 4px groove gray;
+    will-change: background-color;
+}
+
+.rect-row {
     width: 50px;
     height: 50px;
+    text-align: center;
+    line-height: 50px;
 }
