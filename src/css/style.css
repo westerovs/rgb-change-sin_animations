@@ -99,9 +99,10 @@ https://via.placeholder.com/150x100
 
 .row {
     position: relative;
-    top: 100px;
-    left: 50px;
     display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    z-index: 100;
 }
 
 .rect-row,
