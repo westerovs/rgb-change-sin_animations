@@ -1,145 +1,143 @@
-/*
-картинки-заглушки
-https://via.placeholder.com/150x100
-*/
-
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 :root {
-    --main-duration: 3s;
+  --main-duration: 3s;
 }
 
 .page {
-    height: 100%;
+  height: 100%;
 }
 
 .page-body {
-    padding: 30px;
-    min-height: 100%;
-    font-size: 18px;
-    font-family: Geometria, Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(black, red, black);
-    color: #ccc;
-    overflow: hidden;
+  padding: 30px;
+  min-height: 100%;
+  font-size: 18px;
+  font-family: Geometria, Arial, Helvetica, sans-serif;
+  background-color: gray;
+  color: #ccc;
+  overflow: hidden;
 }
 
 .wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(35deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(35deg);
 
-    width: 400px;
-    height: 400px;
-    perspective: 1500px;
+  width: 400px;
+  height: 400px;
+  perspective: 1500px;
 }
 
-.slider {
-    width: inherit;
-    height: inherit;
-    transform-style: preserve-3d;
-    transform: rotateY(-20deg) rotateX(-30deg);
-
-    animation-name: rotateBox;
-    animation-duration: 60s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-    will-change: transform;
-}
-
-@keyframes rotateBox {
-    0% {
-        transform: rotateY(0deg) rotateX(0deg);
-    }
-    0% {
-        transform: rotateY(360deg) rotateX(360deg);
-    }
-}
-
-.slider__side {
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    width: inherit;
-    height: inherit;
-    backface-visibility: visible;
-    outline: 1px solid black;
-}
-
-.slider__side--top {
-    transform: translateY(-200px) rotateX(90deg);
-}
-
-.slider__side--bottom {
-    transform: translateY(200px) rotateX(-90deg);
-}
-
-.slider__side--front {
-    transform: translateZ(200px);
-}
-
-.slider__side--back {
-    transform: rotateY(180deg) translateZ(200px);
-}
-
-.slider__side--right {
-    transform: rotateY(90deg) translateZ(200px);
-}
-
-.slider__side--left {
-    transform: rotateY(-90deg) translateZ(200px);
-}
-
+/* ----------- rect ----------- */
 .row {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    z-index: 100;
-}
-
-.rect-row,
-.rect {
-    will-change: background-color;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  z-index: 100;
 }
 
 .rect {
-    background-image: url("../img/eves.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-    animation-name: eves;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 50px;
+  animation: none;
+  background-image: none;
 }
 
+/* ------------- rectangle */
 
-@keyframes eves {
-    0% {
-        background-position: 10px 10px;
-    }
-    50% {
-        background-position: 0, 0;
-    }
-    100% {
-        background-position: 10px 10px;
-    }
-}
+/*.slider {*/
+/*  width: inherit;*/
+/*  height: inherit;*/
+/*  transform-style: preserve-3d;*/
+/*  transform: rotateY(-20deg) rotateX(-30deg);*/
 
-.rect-row {
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    animation: none;
-    background-image: none;
-}
+/*  animation-name: rotateBox;*/
+/*  animation-duration: 60s;*/
+/*  animation-iteration-count: infinite;*/
+/*  animation-fill-mode: forwards;*/
+/*  will-change: transform;*/
+/*}*/
+
+
+/*.rect {*/
+/*  border: 1px solid black;*/
+/*  background-image: url("../img/eves.png");*/
+/*  background-repeat: no-repeat;*/
+/*  background-position: center;*/
+/*  background-size: cover;*/
+
+/*  animation-name: eves;*/
+/*  animation-duration: 3s;*/
+/*  animation-iteration-count: infinite;*/
+/*  animation-fill-mode: forwards;*/
+/*  will-change: background-color;*/
+/*}*/
+
+/*@keyframes rotateBox {*/
+/*  0% {*/
+/*    transform: rotateY(0deg) rotateX(0deg);*/
+/*  }*/
+/*  0% {*/
+/*    transform: rotateY(360deg) rotateX(360deg);*/
+/*  }*/
+/*}*/
+
+/*.slider__side {*/
+/*  position: absolute;*/
+/*  display: grid;*/
+/*  grid-template-columns: repeat(5, 1fr);*/
+/*  grid-template-rows: repeat(5, 1fr);*/
+/*  width: inherit;*/
+/*  height: inherit;*/
+/*  backface-visibility: visible;*/
+/*  outline: 1px solid black;*/
+/*}*/
+
+/*.slider__side--top {*/
+/*  transform: translateY(-200px) rotateX(90deg);*/
+/*}*/
+
+/*.slider__side--bottom {*/
+/*  transform: translateY(200px) rotateX(-90deg);*/
+/*}*/
+
+/*.slider__side--front {*/
+/*  transform: translateZ(200px);*/
+/*}*/
+
+/*.slider__side--back {*/
+/*  transform: rotateY(180deg) translateZ(200px);*/
+/*}*/
+
+/*.slider__side--right {*/
+/*  transform: rotateY(90deg) translateZ(200px);*/
+/*}*/
+
+/*.slider__side--left {*/
+/*  transform: rotateY(-90deg) translateZ(200px);*/
+/*}*/
+
+
+/*@keyframes eves {*/
+/*  0% {*/
+/*    background-position: 10px 10px;*/
+/*  }*/
+/*  50% {*/
+/*    background-position: 0, 0;*/
+/*  }*/
+/*  100% {*/
+/*    background-position: 10px 10px;*/
+/*  }*/
+/*}*/
+
