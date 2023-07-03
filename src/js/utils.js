@@ -22,6 +22,8 @@ const render = (container, template, place = 'beforeend') => {
   }
 }
 
+console.log('test')
+
 export {
   getRgbDifference,
   getRandomNumber,
